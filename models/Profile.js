@@ -6,7 +6,7 @@ const ProfileSchema = new mongoose.Schema({
     ref: 'user',
   },
   company: {
-    tyope: String,
+    type: String,
   },
   website: {
     type: String,
@@ -35,7 +35,7 @@ const ProfileSchema = new mongoose.Schema({
         required: true,
       },
       company: {
-        typ: String,
+        type: String,
         required: true,
       },
       location: {
@@ -110,4 +110,4 @@ const ProfileSchema = new mongoose.Schema({
   },
 });
 
-module.exports = Profile = mongoose.model('profile' ProfileSchema);
+module.exports = mongoose.model('profile', ProfileSchema);
