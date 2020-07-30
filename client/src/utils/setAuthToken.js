@@ -1,0 +1,14 @@
+import axios from 'axios';
+
+axios.defaults.baseURL = 'http://localhost:5000';
+
+// Global header for token
+const setAuthToken = (token) => {
+  if (token) {
+    axios.defaults.headers.common['x-auth-token'] = token;
+  } else {
+    delete axios.defaults.headers.common['x-auth-token'];
+  }
+};
+
+export default setAuthToken;
