@@ -9,7 +9,7 @@ export const getPosts = () => async (dispatch) => {
 
     dispatch({
       type: GET_POSTS,
-      payload: res.data,
+      payload: res.data.posts,
     });
   } catch (err) {
     dispatch({
