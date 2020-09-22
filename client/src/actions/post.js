@@ -1,12 +1,31 @@
 import axios from 'axios';
 import { setAlert } from './alert';
 import {
+  GET_POST,
   GET_POSTS,
   POST_ERROR,
   UPDATE_LIKES,
   DELETE_POST,
   ADD_POST,
 } from './type';
+
+//Get post
+export const getPost = (id) => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/posts/${id}`);
+
+    dispatch({
+      type: GET_POST,
+      payload: res.data.post,
+    });
+    console.log(res.data);
+  } catch (err) {
+    dispatch({
+      type: POST_ERROR,
+      payload: { msg: err.response, status: err.response },
+    });
+  }
+};
 
 //Get posts
 export const getPosts = () => async (dispatch) => {
